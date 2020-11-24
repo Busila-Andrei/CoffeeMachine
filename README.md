@@ -1,4 +1,4 @@
-Heloo, I'm Busila Andrei
+Hello, I'm Busila Andrei
 # CoffeeMachine
 ## JetBrains Academy
 
