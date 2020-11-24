@@ -4,6 +4,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        new CoffeeMachine();
+        Start start = new Start();
+        start.start();
     }
 }
