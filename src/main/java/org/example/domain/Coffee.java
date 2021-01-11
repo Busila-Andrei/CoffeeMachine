@@ -1,15 +1,13 @@
-package org.example;
+package org.example.domain;
 
-import org.example.utils.ScannerUtils;
-
-public class CoffeeMachine {
+public class Coffee {
     private int water;
     private int milk;
     private int beans;
     private int cups;
     private int money;
 
-    public CoffeeMachine() {
+    public Coffee() {
         this.water = 400;
         this.milk = 540;
         this.beans = 120;

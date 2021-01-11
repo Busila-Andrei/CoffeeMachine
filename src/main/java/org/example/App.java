@@ -1,10 +1,12 @@
 package org.example;
 
-public class App 
+import org.example.service.Menu;
+
+public class App
 {
     public static void main( String[] args )
     {
-        Start start = new Start();
-        start.start();
+        Menu menu = new Menu();
+        menu.logic();
     }
 }

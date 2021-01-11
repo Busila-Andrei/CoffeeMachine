@@ -1,13 +1,10 @@
-package org.example;
+package org.example.service;
 
-import org.example.utils.ScannerUtils;
+import org.example.controller.utils.ScannerUtils;
+import org.example.domain.Coffee;
 
-public class Start {
-    private final CoffeeMachine coffeeMachine = new CoffeeMachine();
-    public void start(){
-        logic();
-    }
-
+public class Menu {
+    private final Coffee coffee = new Coffee();
 
     public void logic() {
         System.out.print("Write action (buy, fill, take, remaining, exit): ");
@@ -51,54 +48,53 @@ public class Start {
 
     public void fill() {
         System.out.print("Write how many ml of water do you want to add: ");
-        coffeeMachine.setWater(coffeeMachine.getWater() + ScannerUtils.nextIntAndMoveToNextLine());
+        coffee.setWater(coffee.getWater() + ScannerUtils.nextIntAndMoveToNextLine());
         System.out.print("Write how many ml of milk do you want to add: ");
-        coffeeMachine.setMilk(coffeeMachine.getMilk() + ScannerUtils.nextIntAndMoveToNextLine());
+        coffee.setMilk(coffee.getMilk() + ScannerUtils.nextIntAndMoveToNextLine());
         System.out.print("Write how many grams of coffee beans do you want to add: ");
-        coffeeMachine.setBeans(coffeeMachine.getBeans() + ScannerUtils.nextIntAndMoveToNextLine());
+        coffee.setBeans(coffee.getBeans() + ScannerUtils.nextIntAndMoveToNextLine());
         System.out.print("Write how many disposable cups of coffee do you want to add: ");
-        coffeeMachine.setCups(coffeeMachine.getCups() + ScannerUtils.nextIntAndMoveToNextLine());
+        coffee.setCups(coffee.getCups() + ScannerUtils.nextIntAndMoveToNextLine());
         logic();
     }
 
     public void takeMoney() {
-        System.out.println("I gave you $" + coffeeMachine.getMoney());
-        coffeeMachine.setMoney(0);
+        System.out.println("I gave you $" + coffee.getMoney());
+        coffee.setMoney(0);
         logic();
     }
 
     public void remaining() {
         System.out.println("\nThe coffee machine has:");
-        System.out.println(coffeeMachine.getWater() + " of water");
-        System.out.println(coffeeMachine.getMilk() + " of milk");
-        System.out.println(coffeeMachine.getBeans() + " of coffee beans");
-        System.out.println(coffeeMachine.getCups() + " of disposable cups");
-        System.out.println("$" + coffeeMachine.getMoney() + " of money\n");
+        System.out.println(coffee.getWater() + " of water");
+        System.out.println(coffee.getMilk() + " of milk");
+        System.out.println(coffee.getBeans() + " of coffee beans");
+        System.out.println(coffee.getCups() + " of disposable cups");
+        System.out.println("$" + coffee.getMoney() + " of money\n");
         logic();
     }
 
     public void makeCoffee(int water, int milk, int beans, int cups, int money) {
-        if (coffeeMachine.getWater() < water) {
+        if (coffee.getWater() < water) {
             System.out.println("Sorry, not enough water!");
             logic();
-        } else if (coffeeMachine.getMilk() < milk) {
+        } else if (coffee.getMilk() < milk) {
             System.out.println("Sorry, not enough milk!");
             logic();
-        } else if (coffeeMachine.getBeans() < beans) {
+        } else if (coffee.getBeans() < beans) {
             System.out.println("Sorry, not enough beans!");
             logic();
-        } else if (coffeeMachine.getCups() < cups) {
+        } else if (coffee.getCups() < cups) {
             System.out.println("Sorry, not enough cups!");
             logic();
         } else {
-            coffeeMachine.setWater(coffeeMachine.getWater() - water);
-            coffeeMachine.setMilk(coffeeMachine.getMilk() - milk);
-            coffeeMachine.setBeans(coffeeMachine.getBeans() - beans);
-            coffeeMachine.setCups(coffeeMachine.getCups() - cups);
-            coffeeMachine.setMoney(coffeeMachine.getMoney() + money);
+            coffee.setWater(coffee.getWater() - water);
+            coffee.setMilk(coffee.getMilk() - milk);
+            coffee.setBeans(coffee.getBeans() - beans);
+            coffee.setCups(coffee.getCups() - cups);
+            coffee.setMoney(coffee.getMoney() + money);
             System.out.println("I have enough resources, making you a coffee!");
             logic();
         }
     }
-
 }
