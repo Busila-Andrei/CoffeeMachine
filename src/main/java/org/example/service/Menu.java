@@ -4,7 +4,7 @@ import org.example.controller.utils.ScannerUtils;
 import org.example.domain.Coffee;
 
 public class Menu {
-    private final Coffee coffee = new Coffee();
+    private final Coffee coffee = new Coffee(400,540,120,9,550);
 
     public void logic() {
         System.out.print("Write action (buy, fill, take, remaining, exit): ");

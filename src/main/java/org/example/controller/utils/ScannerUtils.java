@@ -12,7 +12,6 @@ public class ScannerUtils {
         } finally {
             SCANNER.nextLine();
         }
-
     }
 
     public static String nextLine() {
